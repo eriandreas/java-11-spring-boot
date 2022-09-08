@@ -47,6 +47,9 @@ RUN chmod +x mvnw
 # Normalize artifact name.
 RUN sed -i "s/<\/build>/\t<finalName>${ARTIFACT_NAME}<\/finalName>\n\t<\/build>/" pom.xml
 
+RUN mkdir -p .m2
+COPY settings.xml .m2/ 
+
 # Build
 RUN mvn wrapper:wrapper -Dmaven=${MAVEN_WRAPPER_VERSION}
 RUN ./mvnw clean install -DskipTests
