@@ -47,9 +47,9 @@ RUN chmod +x mvnw
 # Normalize artifact name.
 RUN sed -i "s/<\/build>/\t<finalName>${ARTIFACT_NAME}<\/finalName>\n\t<\/build>/" pom.xml
 
-RUN mkdir .m2
+RUN mkdir -p ~/.m2
 RUN ls -lisa
-COPY settings.xml .m2/settings.xml
+COPY settings.xml ~/.m2/settings.xml
 
 # Build
 RUN mvn wrapper:wrapper -Dmaven=${MAVEN_WRAPPER_VERSION}
