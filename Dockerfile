@@ -48,7 +48,7 @@ RUN chmod +x mvnw
 RUN sed -i "s/<\/build>/\t<finalName>${ARTIFACT_NAME}<\/finalName>\n\t<\/build>/" pom.xml
 
 RUN mkdir .m2
-RUN ln -s .
+RUN ls -lisa
 COPY settings.xml .m2/settings.xml
 
 # Build
