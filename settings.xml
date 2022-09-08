@@ -4,10 +4,10 @@
       xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
     <mirrors>
         <mirror>
-            <id>uk.maven.org</id>
+            <id>google-maven-central</id>
+            <name>Google Maven Central</name>
+            <url>https://maven-central.storage.googleapis.com</url>
             <mirrorOf>central</mirrorOf>
-            <name>UK Central</name>
-        <url>http://uk.maven.org/maven2</url>
-        </mirror>    
- </mirrors>
+        </mirror>
+    </mirrors>
 </settings>
