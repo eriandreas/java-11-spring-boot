@@ -47,10 +47,10 @@ RUN chmod +x mvnw
 # Normalize artifact name.
 RUN sed -i "s/<\/build>/\t<finalName>${ARTIFACT_NAME}<\/finalName>\n\t<\/build>/" pom.xml
 
-CMD ["ls", "-lisa"]
-CMD ["mvn", "help:evaluate", "-Dexpression=settings.localRepository"]
-
-COPY settings.xml $(help:evaluate -Dexpression=settings.localRepository)/settings.xml
+RUN mkdir -p /root/.m2 \
+    && mkdir /root/.m2/repository
+# Copy maven settings, containing repository configurations
+COPY settings.xml /root/.m2
 
 # Build
 RUN mvn wrapper:wrapper -Dmaven=${MAVEN_WRAPPER_VERSION}
