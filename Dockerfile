@@ -47,7 +47,8 @@ RUN chmod +x mvnw
 # Normalize artifact name.
 RUN sed -i "s/<\/build>/\t<finalName>${ARTIFACT_NAME}<\/finalName>\n\t<\/build>/" pom.xml
 
-RUN mkdir -p .m2
+RUN mkdir .m2
+RUN ln -s .
 COPY settings.xml .m2/ 
 
 # Build
