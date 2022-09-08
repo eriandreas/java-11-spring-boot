@@ -47,8 +47,8 @@ RUN chmod +x mvnw
 # Normalize artifact name.
 RUN sed -i "s/<\/build>/\t<finalName>${ARTIFACT_NAME}<\/finalName>\n\t<\/build>/" pom.xml
 
-RUN ls -lisa
-RUN mvn help:evaluate -Dexpression=settings.localRepository
+CMD ["ls", "-lisa"]
+CMD ["mvn", "help:evaluate", "-Dexpression=settings.localRepository"]
 
 COPY settings.xml $(help:evaluate -Dexpression=settings.localRepository)/settings.xml
 
