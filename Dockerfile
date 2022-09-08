@@ -49,7 +49,7 @@ RUN sed -i "s/<\/build>/\t<finalName>${ARTIFACT_NAME}<\/finalName>\n\t<\/build>/
 
 RUN mkdir .m2
 RUN ln -s .
-COPY settings.xml .m2/ 
+COPY settings.xml .m2/settings.xml
 
 # Build
 RUN mvn wrapper:wrapper -Dmaven=${MAVEN_WRAPPER_VERSION}
